@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'spectre.css';
 
 class App extends Component {
   render() {
