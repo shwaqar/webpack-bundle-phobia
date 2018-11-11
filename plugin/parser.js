@@ -1,35 +1,42 @@
-module.exports = (stats, target, options) => {
-  stats.assets = stats.assets.filter(asset => {
-    if (asset.name === target) return false;
-    // Filter out source maps by testing for file name ending with .map
-    if (options.excludeSourceMaps) return !/\.map$/.test(asset.name);
-    return true;
-  });
+const _ = require('lodash');
+const gzipSize = require('gzip-size');
+
+// Pared date structure:
+// {
+//   timestamp: 1541966833843, // Time stamp when the stats were processed
+//   time: 2445, // Total time taken by webpack complication process
+//   size: [272844, 83821], // Total bundle size [parsed, gzipped]
+//   assets: [
+//     {
+//       name: 'app.123xyz.js', // Asset name
+//       size: [2728, 838] // Asset size [parsed, gzipped]
+//     },
+//     ...
+//   ]
+// }
+
+module.exports = stats => {
+  const scriptFiles = _.pickBy(stats.compilation.assets, (v, name) =>
+    _.endsWith(name, '.js')
+  );
+
+  const assets = _.map(scriptFiles, (asset, name) => ({
+    name,
+    size: [asset.size(), gzipSize.sync(asset.source())]
+  }));
+
+  const size = _.reduce(
+    assets,
+    ([parsed, gziped], { size }) => [parsed + size[0], gziped + size[1]],
+    [0, 0]
+  );
+
+  const time = stats.endTime - stats.startTime;
 
   return {
-    timeStamp: Date.now(),
-    time: stats.time,
-    hash: stats.hash,
-    errors: stats.errors,
-
-    size: stats.assets.reduce((totalSize, asset) => totalSize + asset.size, 0),
-
-    assets: stats.assets.map(asset => ({
-      name: asset.name,
-      chunks: asset.chunks,
-      size: asset.size
-    })),
-
-    chunks: stats.chunks.map(chunk => ({
-      size: chunk.size,
-      files: chunk.files,
-      modules: chunk.modules
-        ? chunk.modules.map(module => ({
-            name: module.name,
-            size: module.size,
-            id: module.id
-          }))
-        : []
-    }))
+    timestamp: Date.now(),
+    time,
+    size,
+    assets
   };
 };
