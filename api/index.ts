@@ -1,36 +1,29 @@
-const firebase = require('./firebase');
+import firebase from './firebase';
 
 const COLLECTION = 'releases';
 
-function auth({ email, password }) {
+export function auth({ email, password }: { email: string; password: string }) {
   return firebase.auth().signInWithEmailAndPassword(email, password);
 }
 
-function cleanUp() {
+export function cleanUp() {
   return firebase
     .auth()
     .signOut()
     .then(() => firebase.delete());
 }
 
-function sendData(name, payload) {
+export function sendData(name: string, payload: object) {
   return firebase
     .database()
     .ref(`${COLLECTION}/${name}`)
     .set(payload);
 }
 
-function fetchData() {
+export function fetchData() {
   return firebase
     .database()
     .ref(COLLECTION)
     .once('value')
     .then(snapshot => snapshot.val());
 }
-
-module.exports = {
-  sendData,
-  fetchData,
-  auth,
-  cleanUp
-};

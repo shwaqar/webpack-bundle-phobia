@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const gzipSize = require('gzip-size');
+import gzipSize from 'gzip-size';
+import _ from 'lodash';
 
 // Pared date structure:
 // {
@@ -14,8 +14,7 @@ const gzipSize = require('gzip-size');
 //     ...
 //   ]
 // }
-
-module.exports = stats => {
+function parser(stats: any) {
   const scriptFiles = _.pickBy(stats.compilation.assets, (v, name) =>
     _.endsWith(name, '.js')
   );
@@ -34,9 +33,11 @@ module.exports = stats => {
   const time = stats.endTime - stats.startTime;
 
   return {
-    timestamp: Date.now(),
-    time,
+    assets,
     size,
-    assets
+    time,
+    timestamp: Date.now()
   };
-};
+}
+
+export default parser;
