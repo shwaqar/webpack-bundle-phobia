@@ -1,32 +1,40 @@
 const parser = require('./parser');
-const { sendData } = require('../api');
+const { sendData, auth, cleanUp } = require('../api');
 const chalk = require('chalk');
 
 class bundlePhobiaWebpackPlugin {
   constructor(options = {}) {
-    this.options = options;
+    this.name = options.name;
+    this.credentials = options.credentials;
   }
 
   apply(compiler) {
     compiler.hooks.done.tapAsync('bundlePhobiaWebpackPlugin', (stats, cb) => {
-      if (!this.options.name) {
-        console.log(
-          chalk.red(
-            'bundle-phobia-webpack-plugin: Release name must be defined.'
-          )
-        );
+      const messageMap = {
+        noReleaseName:
+          'bundle-phobia-webpack-plugin: Release name must be defined.',
+        noCredentials:
+          'bundle-phobia-webpack-plugin: Credentials name must be defined.',
+        storeSuccess:
+          'bundle-phobia-webpack-plugin: Release data stored in the database.'
+      };
+      const errorMsg = !this.name
+        ? messageMap.noReleaseName
+        : messageMap.noCredentials;
+
+      if (!this.name || !this.credentials) {
+        console.log(chalk.red(errorMsg));
         cb();
         return;
       }
 
-      sendData(this.options.name, parser(stats)).then(() => {
-        console.log(
-          chalk.green(
-            'bundle-phobia-webpack-plugin: Release data stored in the database.'
-          )
-        );
-        cb();
-      });
+      auth(this.credentials)
+        .then(() => sendData(this.name, parser(stats)))
+        .then(cleanUp)
+        .then(() => {
+          console.log(chalk.green(messageMap.storeSuccess));
+          cb();
+        });
     });
   }
 }

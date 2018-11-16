@@ -2,12 +2,22 @@ const firebase = require('./firebase');
 
 const COLLECTION = 'releases';
 
+function auth({ email, password }) {
+  return firebase.auth().signInWithEmailAndPassword(email, password);
+}
+
+function cleanUp() {
+  return firebase
+    .auth()
+    .signOut()
+    .then(() => firebase.delete());
+}
+
 function sendData(name, payload) {
   return firebase
     .database()
     .ref(`${COLLECTION}/${name}`)
-    .set(payload)
-    .then(() => firebase.delete());
+    .set(payload);
 }
 
 function fetchData() {
@@ -15,13 +25,12 @@ function fetchData() {
     .database()
     .ref(COLLECTION)
     .once('value')
-    .then(snapshot => {
-      firebase.delete();
-      return snapshot.val();
-    });
+    .then(snapshot => snapshot.val());
 }
 
 module.exports = {
   sendData,
-  fetchData
+  fetchData,
+  auth,
+  cleanUp
 };
