@@ -1,29 +1,24 @@
 {
   "name": "webpack-bundle-phobia",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Find out the cost of webpack bundle over time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shwaqar/webpack-bundle-phobia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shwaqar/webpack-bundle-phobia/issues"
+  },
+  "homepage": "https://github.com/shwaqar/webpack-bundle-phobia#readme",
   "dependencies": {
     "chalk": "^2.4.1",
     "firebase": "^5.5.8",
-    "node-sass": "^4.10.0",
-    "react": "^16.6.1",
-    "react-dom": "^16.6.1",
-    "react-scripts": "2.1.1",
-    "spectre.css": "^0.5.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "gzip-size": "^5.0.0"
+  }
 }
