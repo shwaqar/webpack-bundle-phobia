@@ -1,4 +1,5 @@
 import gzipSize from 'gzip-size';
+import path from 'path';
 import _ from 'lodash';
 
 const findChunk = (chunks: any) => (file: any) =>
@@ -16,7 +17,7 @@ function parser(stats: any) {
   );
 
   const assets = _.map(rawFiles, (asset, name) => ({
-    name,
+    name: path.basename(name),
     type: assetType(name),
     isInitial: findByChunk(name).canBeInitial(),
     minSize: asset.size(),
