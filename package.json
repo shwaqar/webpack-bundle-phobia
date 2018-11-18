@@ -1,29 +1,39 @@
 {
   "name": "webpack-bundle-phobia",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Find out the cost of webpack bundle over time",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf build && tsc",
+    "lint:plugin": "eslint 'plugin/*.ts'",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shwaqar/webpack-bundle-phobia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shwaqar/webpack-bundle-phobia/issues"
+  },
+  "homepage": "https://github.com/shwaqar/webpack-bundle-phobia#readme",
   "dependencies": {
     "chalk": "^2.4.1",
     "firebase": "^5.5.8",
-    "node-sass": "^4.10.0",
-    "react": "^16.6.1",
-    "react-dom": "^16.6.1",
-    "react-scripts": "2.1.1",
-    "spectre.css": "^0.5.5"
+    "gzip-size": "^5.0.0",
+    "lodash": "^4.17.11",
+    "typescript": "^3.1.6"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "devDependencies": {
+    "@types/gzip-size": "^4.1.0",
+    "@types/jest": "^23.3.9",
+    "@types/lodash": "^4.14.118",
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-typescript": "^0.13.0",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.4",
+    "typescript-eslint-parser": "^21.0.1"
+  }
 }
