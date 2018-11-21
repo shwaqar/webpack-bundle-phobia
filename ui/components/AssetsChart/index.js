@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { sumBy, add } from 'lodash';
 
 import BarChart from '../BarChart';
@@ -24,21 +24,14 @@ const convertData = releases =>
     };
   });
 
-class AssetsChart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: convertData(this.props.data)
-    };
-  }
+function AssetsChart(props) {
+  const data = convertData(props.data);
 
-  render() {
-    return (
-      <div>
-        <BarChart data={this.state.data} />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <BarChart data={data} />
+    </div>
+  );
 }
 
 export default AssetsChart;

@@ -8,13 +8,13 @@ $min-hover-color: darken($min-color, 5);
 
 .bar-chart {
   display: flex;
-  height: 60vh;
+  height: 300px;
 
   &__bar {
     position: relative;
-    width: 50px;
+    width: 35px;
     height: 100%;
-    padding: 0 10px;
+    padding: 0 8px;
   }
 
   &__stack-group {
