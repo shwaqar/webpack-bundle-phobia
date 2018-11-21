@@ -1,22 +1,48 @@
+$gzip-color: #65a1f8;
+$gzip-active-color: darken($gzip-color, 5);
+$gzip-hover-color: darken($gzip-color, 5);
+
+$min-color: #65c3f8;
+$min-active-color: darken($min-color, 5);
+$min-hover-color: darken($min-color, 5);
+
 .bar-chart {
   display: flex;
   height: 60vh;
-  
+
   &__bar {
     position: relative;
     width: 50px;
     height: 100%;
     padding: 0 10px;
   }
-  
+
   &__stack-group {
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
     height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+
+    &:hover {
+      .min {
+        background-color: $min-hover-color;
+      }
+      .gzip {
+        background-color: $gzip-hover-color;
+      }
+    }
   }
-  
+
   &__stack {
     width: 100%;
+
+    &.min {
+      background-color: $min-color;
+    }
+    &.gzip {
+      background-color: $gzip-color;
+    }
   }
 }
