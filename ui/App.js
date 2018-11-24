@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
 import 'normalize.css';
 import 'flexboxgrid';
+import _ from 'lodash';
 
 import './App.scss';
 
 import AssetsChart from './components/AssetsChart';
-import stats from '../stats.json';
+import releases from '../stats.json';
 import AssetsTable from './components/AssetsTable';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      releases: releases,
+      currentRelease: releases[0]
+    };
+    this.handleReleaseChange = this.handleReleaseChange.bind(this);
+  }
+
+  handleReleaseChange(idx) {
+    console.log(idx);
+    this.setState(state => ({
+      currentRelease: state.releases[idx]
+    }));
+  }
+
   render() {
     return (
       <div>
@@ -18,10 +35,13 @@ class App extends Component {
 
         <div className='row around-xs middle-xs'>
           <div className='col-md-6'>
-            <AssetsTable data={stats} />
+            <AssetsTable currentRelease={this.state.currentRelease} />
           </div>
           <div className='col-md-4'>
-            <AssetsChart data={stats} />
+            <AssetsChart
+              releases={this.state.releases}
+              handleReleaseChange={this.handleReleaseChange}
+            />
           </div>
         </div>
       </div>

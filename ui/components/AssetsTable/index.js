@@ -56,12 +56,15 @@ const AssetsTableItem = ({ name, percent, gzipSize, minSize }) => {
   );
 };
 
-function AssetsTable(props) {
-  const data = processData(props.data[0].assets);
+function AssetsTable({ currentRelease }) {
+  console.log(currentRelease.name);
+  const data = processData(currentRelease.assets);
 
   return (
     <ul className='assets-table'>
-      {data.map(asset => AssetsTableItem(asset))}
+      {data.map((asset, idx) => (
+        <AssetsTableItem key={idx} {...asset} />
+      ))}
     </ul>
   );
 }

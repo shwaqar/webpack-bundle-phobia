@@ -24,12 +24,12 @@ const convertData = releases =>
     };
   });
 
-function AssetsChart(props) {
-  const data = convertData(props.data);
+function AssetsChart({ releases, handleReleaseChange }) {
+  const data = convertData(releases);
 
   return (
     <div>
-      <BarChart data={data} />
+      <BarChart data={data} handleReleaseChange={handleReleaseChange} />
     </div>
   );
 }

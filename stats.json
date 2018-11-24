@@ -51,44 +51,44 @@
   {
     "assets": [
       {
-        "gzipSize": 101,
+        "gzipSize": 105,
         "isInitial": true,
-        "minSize": 84,
-        "name": "app.7310c550.css",
+        "minSize": 90,
+        "name": "app.dada2321.css",
         "type": "css"
       },
       {
-        "gzipSize": 1238,
+        "gzipSize": 1278,
         "isInitial": true,
-        "minSize": 7169,
-        "name": "app.d5ecd45f.js",
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
         "type": "script"
       },
       {
-        "gzipSize": 155,
+        "gzipSize": 125,
         "isInitial": false,
-        "minSize": 155,
-        "name": "1.dc4b3079.js",
+        "minSize": 105,
+        "name": "1.da131s.js",
         "type": "script"
       },
       {
-        "gzipSize": 11171,
+        "gzipSize": 11371,
         "isInitial": true,
-        "minSize": 59889,
-        "name": "vendor.53118c26.css",
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
         "type": "css"
       },
       {
-        "gzipSize": 68186,
+        "gzipSize": 78186,
         "isInitial": true,
-        "minSize": 194831,
-        "name": "vendor.5f921976.js",
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
         "type": "script"
       },
       {
         "gzipSize": 1168,
         "isInitial": true,
-        "minSize": 2293,
+        "minSize": 2993,
         "name": "runtime.f1b40dab.js",
         "type": "script"
       }
