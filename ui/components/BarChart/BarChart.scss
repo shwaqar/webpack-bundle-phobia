@@ -1,9 +1,9 @@
 $gzip-color: #65a1f8;
-$gzip-active-color: darken($gzip-color, 5);
+$gzip-active-color: darken($gzip-color, 10);
 $gzip-hover-color: darken($gzip-color, 5);
 
 $min-color: #65c3f8;
-$min-active-color: darken($min-color, 5);
+$min-active-color: darken($min-color, 10);
 $min-hover-color: darken($min-color, 5);
 
 .bar-chart {
@@ -15,10 +15,21 @@ $min-hover-color: darken($min-color, 5);
     position: relative;
     width: 35px;
     padding: 0 8px;
+    cursor: pointer;
 
     &:hover {
       .bar-tooltip {
         display: block;
+      }
+    }
+
+    &.active {
+      cursor: auto;
+      .min {
+        background-color: $min-active-color;
+      }
+      .gzip {
+        background-color: $gzip-active-color;
       }
     }
   }
@@ -40,6 +51,7 @@ $min-hover-color: darken($min-color, 5);
 
   &__stack {
     width: 100%;
+    transition: background-color 200ms ease-in-out;
 
     &:first-child {
       border-bottom-left-radius: 4px;

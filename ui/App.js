@@ -13,6 +13,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentReleaseIdx: 0,
       releases: releases,
       currentRelease: releases[0]
     };
@@ -22,6 +23,7 @@ class App extends Component {
   handleReleaseChange(idx) {
     console.log(idx);
     this.setState(state => ({
+      currentReleaseIdx: idx,
       currentRelease: state.releases[idx]
     }));
   }
@@ -40,6 +42,7 @@ class App extends Component {
           <div className='col-md-4'>
             <AssetsChart
               releases={this.state.releases}
+              currentReleaseIdx={this.state.currentReleaseIdx}
               handleReleaseChange={this.handleReleaseChange}
             />
           </div>

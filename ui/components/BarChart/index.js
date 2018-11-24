@@ -37,10 +37,11 @@ const Bar = ({
   totalSize,
   tallestBar,
   releasesIdx,
+  isActive,
   handleReleaseChange
 }) => (
   <div
-    className='bar-chart__bar'
+    className={`bar-chart__bar ${isActive ? 'active' : ''}`}
     onClick={() => handleReleaseChange(releasesIdx)}
   >
     <div className='bar-tooltip'>
@@ -54,7 +55,7 @@ const Bar = ({
   </div>
 );
 
-const BarChart = ({ data, handleReleaseChange }) => {
+const BarChart = ({ data, handleReleaseChange, currentReleaseIdx }) => {
   const tallestBar = maxBy(data, 'totalSize').totalSize;
 
   return (
@@ -63,10 +64,11 @@ const BarChart = ({ data, handleReleaseChange }) => {
         {data.map((release, idx) => (
           <Bar
             key={release.name}
-            {...release}
             tallestBar={tallestBar}
             releasesIdx={idx}
             handleReleaseChange={handleReleaseChange}
+            isActive={currentReleaseIdx === idx}
+            {...release}
           />
         ))}
       </div>

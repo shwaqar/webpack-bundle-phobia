@@ -24,12 +24,16 @@ const convertData = releases =>
     };
   });
 
-function AssetsChart({ releases, handleReleaseChange }) {
+function AssetsChart({ releases, handleReleaseChange, currentReleaseIdx }) {
   const data = convertData(releases);
 
   return (
     <div>
-      <BarChart data={data} handleReleaseChange={handleReleaseChange} />
+      <BarChart
+        data={data}
+        handleReleaseChange={handleReleaseChange}
+        currentReleaseIdx={currentReleaseIdx}
+      />
     </div>
   );
 }
