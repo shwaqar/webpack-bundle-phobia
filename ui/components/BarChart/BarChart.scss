@@ -1,10 +1,4 @@
-$gzip-color: #65a1f8;
-$gzip-active-color: darken($gzip-color, 10);
-$gzip-hover-color: darken($gzip-color, 5);
-
-$min-color: #65c3f8;
-$min-active-color: darken($min-color, 10);
-$min-hover-color: darken($min-color, 5);
+@import '../../variables.scss';
 
 .bar-chart {
   display: flex;
@@ -101,7 +95,7 @@ $min-hover-color: darken($min-color, 5);
   top: -38px;
   left: 50%;
   width: 260px;
-  background-color: #423d3d;
+  background-color: $bar-tooltip-bg;
   border-radius: 4px;
   padding: 6px;
   color: #fff;
@@ -117,6 +111,6 @@ $min-hover-color: darken($min-color, 5);
     transform: translateX(-50%);
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 6px solid #423d3d;
+    border-top: 6px solid $bar-tooltip-bg;
   }
 }

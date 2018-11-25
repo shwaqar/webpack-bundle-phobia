@@ -1,10 +1,12 @@
+@import '../../variables.scss';
+
 .filters {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
-  border-top: 1px solid #edeef0;
-  border-bottom: 1px solid #edeef0;
+  border-top: 1px solid $table-border;
+  border-bottom: 1px solid $table-border;
 
   &__header {
     margin: 0;
@@ -18,8 +20,8 @@
   margin-right: 14px;
 
   &__item {
-    border: 1px solid #0652dd;
-    color: #0652dd;
+    border: 1px solid $filter-active;
+    color: $filter-active;
     border-radius: 6px;
     display: inline-block;
     padding: 4px 8px;
@@ -27,14 +29,14 @@
   }
 
   input:checked ~ &__item {
-    background-color: #0652dd;
+    background-color: $filter-active;
     color: #fff;
   }
 }
 
 .filter-radio-group {
-  border: 1px solid #0652dd;
-  color: #0652dd;
+  border: 1px solid $filter-active;
+  color: $filter-active;
   border-radius: 6px;
   overflow: hidden;
 
@@ -45,7 +47,7 @@
   }
 
   input:checked ~ &__item {
-    background-color: #0652dd;
+    background-color: $filter-active;
     color: #fff;
     cursor: auto;
   }

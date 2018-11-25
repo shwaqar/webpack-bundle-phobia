@@ -1,7 +1,9 @@
+@import '../../variables.scss';
+
 .assets-table {
-  border: 1px solid #edeef0;
+  border: 1px solid $table-border;
   border-radius: 2px;
-  box-shadow: 0 0 4px #edeef0;
+  box-shadow: 0 0 4px $table-border;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -9,11 +11,11 @@
 
   &__item {
     padding: 20px;
-    border-bottom: 1px solid #edeef0;
+    border-bottom: 1px solid $table-border;
 
     &:last-of-type {
       border-bottom: 0;
-      background-color: #edeef0;
+      background-color: $table-border;
     }
   }
 
