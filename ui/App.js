@@ -10,6 +10,7 @@ import releases from '../stats.json';
 import AssetsTable from './components/AssetsTable';
 
 import { filterByFileType, filterLazyModules } from './utils';
+import Filters from './components/Filters';
 
 class App extends Component {
   constructor(props) {
@@ -50,50 +51,12 @@ class App extends Component {
           <h1 className='app-title'>Webpack Bundle Phobia</h1>
         </div>
 
-        <div>
-          <label>
-            Include lazy loaded modules
-            <input
-              name='includeLazyModules'
-              type='checkbox'
-              checked={this.state.includeLazyModules}
-              onChange={this.handleIncludeLazyModules}
-            />
-          </label>
-        </div>
-
-        <div>
-          <label>
-            Scripts
-            <input
-              type='radio'
-              name='fileTypes'
-              value='js'
-              checked={this.state.fileTypes === 'js'}
-              onChange={this.handleFileTypeChange}
-            />
-          </label>
-          <label>
-            Styles
-            <input
-              type='radio'
-              name='fileTypes'
-              value='css'
-              checked={this.state.fileTypes === 'css'}
-              onChange={this.handleFileTypeChange}
-            />
-          </label>
-          <label>
-            All
-            <input
-              type='radio'
-              name='fileTypes'
-              value='all'
-              checked={this.state.fileTypes === 'all'}
-              onChange={this.handleFileTypeChange}
-            />
-          </label>
-        </div>
+        <Filters
+          fileTypes={this.state.fileTypes}
+          includeLazyModules={this.state.includeLazyModules}
+          handleFileTypeChange={this.handleFileTypeChange}
+          handleIncludeLazyModules={this.handleIncludeLazyModules}
+        />
 
         <div className='row around-xs top-xs'>
           <div className='col-md-6'>

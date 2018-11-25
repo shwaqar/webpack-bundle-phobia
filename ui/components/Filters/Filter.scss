@@ -1,0 +1,61 @@
+.filters {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-top: 1px solid #edeef0;
+  border-bottom: 1px solid #edeef0;
+
+  &__header {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+}
+
+.filter-checkbox {
+  margin-right: 14px;
+
+  &__item {
+    border: 1px solid #0652dd;
+    color: #0652dd;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+
+  input:checked ~ &__item {
+    background-color: #0652dd;
+    color: #fff;
+  }
+}
+
+.filter-radio-group {
+  border: 1px solid #0652dd;
+  color: #0652dd;
+  border-radius: 6px;
+  overflow: hidden;
+
+  &__item {
+    display: inline-block;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+
+  input:checked ~ &__item {
+    background-color: #0652dd;
+    color: #fff;
+    cursor: auto;
+  }
+}
+
+.filter-checkbox input,
+.filter-radio-group input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
