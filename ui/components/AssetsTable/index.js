@@ -56,9 +56,8 @@ const AssetsTableItem = ({ name, percent, gzipSize, minSize }) => {
   );
 };
 
-function AssetsTable({ currentRelease }) {
-  console.log(currentRelease.name);
-  const data = processData(currentRelease.assets);
+function AssetsTable({ releases, currentReleaseIdx }) {
+  const data = processData(releases[currentReleaseIdx].assets);
 
   return (
     <ul className='assets-table'>

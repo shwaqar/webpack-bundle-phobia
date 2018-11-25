@@ -10,6 +10,7 @@ $min-hover-color: darken($min-color, 5);
   display: flex;
   height: 300px;
   align-items: flex-end;
+  flex-direction: row-reverse;
 
   &__bar {
     position: relative;

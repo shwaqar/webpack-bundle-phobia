@@ -16,9 +16,9 @@
         "type": "script"
       },
       {
-        "gzipSize": 155,
+        "gzipSize": 155231,
         "isInitial": false,
-        "minSize": 155,
+        "minSize": 155211,
         "name": "1.dc4b3079.js",
         "type": "script"
       },
@@ -62,13 +62,6 @@
         "isInitial": true,
         "minSize": 7109,
         "name": "app.dsaxcz.js",
-        "type": "script"
-      },
-      {
-        "gzipSize": 125,
-        "isInitial": false,
-        "minSize": 105,
-        "name": "1.da131s.js",
         "type": "script"
       },
       {
