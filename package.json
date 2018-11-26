@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel ./ui/index.html",
+    "build:ui": "parcel build ./ui/index.html",
     "build": "rm -rf build && tsc",
     "lint:plugin": "eslint 'plugin/*.ts'",
     "lint:ui": "eslint 'ui/**/*.ts'",
@@ -32,6 +33,7 @@
     "typescript": "^3.1.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
     "@types/gzip-size": "^4.1.0",
     "@types/jest": "^23.3.9",
     "@types/lodash": "^4.14.118",
