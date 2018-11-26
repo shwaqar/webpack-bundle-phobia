@@ -1,22 +1,119 @@
+@import '../../variables.scss';
+
 .bar-chart {
   display: flex;
-  height: 60vh;
-  
+  height: 300px;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+
   &__bar {
     position: relative;
-    width: 50px;
-    height: 100%;
-    padding: 0 10px;
+    width: 35px;
+    padding: 0 8px;
+    cursor: pointer;
+
+    &:hover {
+      .bar-tooltip {
+        display: block;
+      }
+    }
+
+    &.active {
+      cursor: auto;
+
+      &:hover .min,
+      .min {
+        background-color: $min-active-color;
+      }
+      &:hover .gzip,
+      .gzip {
+        background-color: $gzip-active-color;
+      }
+    }
   }
-  
+
   &__stack-group {
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
-    height: 100%;
+
+    &:hover {
+      .min {
+        background-color: $min-hover-color;
+      }
+      .gzip {
+        background-color: $gzip-hover-color;
+      }
+    }
   }
-  
+
   &__stack {
     width: 100%;
+    transition: background-color 200ms ease-in-out;
+
+    &:first-child {
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+    &:last-child {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+
+    &.min {
+      background-color: $min-color;
+    }
+    &.gzip {
+      background-color: $gzip-color;
+    }
+  }
+}
+
+.bar-chart-legend {
+  padding: 25px 0;
+
+  &__item {
+    padding: 0 20px;
+    font-size: 0.8em;
+    align-items: center;
+  }
+  &__box {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 6px;
+
+    &.gzip {
+      background-color: $gzip-color;
+    }
+    &.min {
+      background-color: $min-color;
+    }
+  }
+}
+
+.bar-tooltip {
+  display: none;
+  position: absolute;
+  top: -38px;
+  left: 50%;
+  width: 260px;
+  background-color: $bar-tooltip-bg;
+  border-radius: 4px;
+  padding: 6px;
+  color: #fff;
+  font-size: 0.8em;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $bar-tooltip-bg;
   }
 }

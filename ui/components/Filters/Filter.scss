@@ -1,0 +1,63 @@
+@import '../../variables.scss';
+
+.filters {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-top: 1px solid $table-border;
+  border-bottom: 1px solid $table-border;
+
+  &__header {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+}
+
+.filter-checkbox {
+  margin-right: 14px;
+
+  &__item {
+    border: 1px solid $filter-active;
+    color: $filter-active;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+
+  input:checked ~ &__item {
+    background-color: $filter-active;
+    color: $filter-font-color;
+  }
+}
+
+.filter-radio-group {
+  border: 1px solid $filter-active;
+  color: $filter-active;
+  border-radius: 6px;
+  overflow: hidden;
+
+  &__item {
+    display: inline-block;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+
+  input:checked ~ &__item {
+    background-color: $filter-active;
+    color: $filter-font-color;
+    cursor: auto;
+  }
+}
+
+.filter-checkbox input,
+.filter-radio-group input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}

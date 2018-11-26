@@ -1,0 +1,93 @@
+[
+  {
+    "assets": [
+      {
+        "gzipSize": 101,
+        "isInitial": true,
+        "minSize": 84,
+        "name": "app.7310c550.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1238,
+        "isInitial": true,
+        "minSize": 7169,
+        "name": "app.d5ecd45f.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 155231,
+        "isInitial": false,
+        "minSize": 155211,
+        "name": "1.dc4b3079.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11171,
+        "isInitial": true,
+        "minSize": 59889,
+        "name": "vendor.53118c26.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 68186,
+        "isInitial": true,
+        "minSize": 194831,
+        "name": "vendor.5f921976.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2293,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release A",
+    "time": 2526,
+    "timestamp": 1542494156559
+  },
+  {
+    "assets": [
+      {
+        "gzipSize": 105,
+        "isInitial": true,
+        "minSize": 90,
+        "name": "app.dada2321.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1278,
+        "isInitial": true,
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11371,
+        "isInitial": true,
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 78186,
+        "isInitial": true,
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2993,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release B",
+    "time": 2526,
+    "timestamp": 1542494156559
+  }
+]

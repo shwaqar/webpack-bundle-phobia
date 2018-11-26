@@ -1,93 +1,83 @@
 import React, { Component } from 'react';
-import 'spectre.css';
+import 'normalize.css';
+import 'flexboxgrid';
+import { flow } from 'lodash';
 
-import BarChart from './components/BarChart/BarChart';
+import './App.scss';
 
-const state = [
-  {
-    name: 'Release A',
-    data: [
-      {
-        name: 'Chunk A',
-        size: 200
-      },
-      {
-        name: 'Chunk B',
-        size: 300
-      },
-      {
-        name: 'Chunk C',
-        size: 500
-      }
-    ]
-  },
-  {
-    name: 'Release B',
-    data: [
-      {
-        name: 'Chunk A',
-        size: 400
-      },
-      {
-        name: 'Chunk B',
-        size: 600
-      },
-      {
-        name: 'Chunk C',
-        size: 800
-      }
-    ]
-  },
-  {
-    name: 'Release B',
-    data: [
-      {
-        name: 'Chunk A',
-        size: 800
-      },
-      {
-        name: 'Chunk B',
-        size: 1000
-      },
-      {
-        name: 'Chunk C',
-        size: 400
-      },
-      {
-        name: 'Chunk D',
-        size: 1200
-      }
-    ]
-  },
-  {
-    name: 'Release B',
-    data: [
-      {
-        name: 'Chunk A',
-        size: 800
-      },
-      {
-        name: 'Chunk B',
-        size: 700
-      },
-      {
-        name: 'Chunk C',
-        size: 400
-      },
-      {
-        name: 'Chunk D',
-        size: 1200
-      }
-    ]
-  }
-];
+import AssetsChart from './components/AssetsChart';
+import stats from '../stats.json';
+import AssetsTable from './components/AssetsTable';
+
+import { filterByFileType, filterLazyModules } from './utils';
+import Filters from './components/Filters';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentReleaseIdx: 0,
+      releases: stats,
+      includeLazyModules: true,
+      fileTypes: 'all'
+    };
+    this.handleReleaseChange = this.handleReleaseChange.bind(this);
+    this.handleIncludeLazyModules = this.handleIncludeLazyModules.bind(this);
+    this.handleFileTypeChange = this.handleFileTypeChange.bind(this);
+  }
+
+  handleReleaseChange(idx) {
+    this.setState(() => ({
+      currentReleaseIdx: idx
+    }));
+  }
+
+  handleIncludeLazyModules({ target }) {
+    this.setState(() => ({
+      includeLazyModules: target.checked
+    }));
+  }
+
+  handleFileTypeChange({ target }) {
+    this.setState(() => ({
+      fileTypes: target.value
+    }));
+  }
+
   render() {
+    const releases = flow(
+      filterLazyModules(this.state.includeLazyModules),
+      filterByFileType(this.state.fileTypes)
+    )(this.state.releases);
+
     return (
-      <div className="container">
-        <h1 className="App-title">Welcome to webpack-bundle-phobia</h1>
-        <BarChart data={state} />
+      <div>
+        <div className='row center-xs'>
+          <h1 className='app-title'>Webpack Bundle Phobia</h1>
+        </div>
+
+        <Filters
+          fileTypes={this.state.fileTypes}
+          includeLazyModules={this.state.includeLazyModules}
+          handleFileTypeChange={this.handleFileTypeChange}
+          handleIncludeLazyModules={this.handleIncludeLazyModules}
+        />
+
+        <div className='row around-xs top-xs'>
+          <div className='col-md-6'>
+            <AssetsTable
+              releases={releases}
+              currentReleaseIdx={this.state.currentReleaseIdx}
+            />
+          </div>
+          <div className='col-md-4'>
+            <AssetsChart
+              releases={releases}
+              currentReleaseIdx={this.state.currentReleaseIdx}
+              handleReleaseChange={this.handleReleaseChange}
+            />
+          </div>
+        </div>
       </div>
     );
   }

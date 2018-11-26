@@ -4,8 +4,11 @@
   "description": "Find out the cost of webpack bundle over time",
   "main": "index.js",
   "scripts": {
+    "start": "parcel ./ui/index.html",
+    "build:ui": "parcel build ./ui/index.html",
     "build": "rm -rf build && tsc",
     "lint:plugin": "eslint 'plugin/*.ts'",
+    "lint:ui": "eslint 'ui/**/*.ts'",
     "test": "jest"
   },
   "repository": {
@@ -21,11 +24,16 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "firebase": "^5.5.8",
+    "flexboxgrid": "^6.3.1",
     "gzip-size": "^5.0.0",
     "lodash": "^4.17.11",
+    "normalize.css": "^8.0.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "typescript": "^3.1.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
     "@types/gzip-size": "^4.1.0",
     "@types/jest": "^23.3.9",
     "@types/lodash": "^4.14.118",
@@ -33,6 +41,8 @@
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-typescript": "^0.13.0",
     "jest": "^23.6.0",
+    "parcel-bundler": "^1.10.3",
+    "sass": "^1.15.1",
     "ts-jest": "^23.10.4",
     "typescript-eslint-parser": "^21.0.1"
   }
