@@ -1,4 +1,4 @@
-import React from 'react';
+import { h, render } from 'preact';
 import filesize from 'filesize';
 import { sumBy, floor, divide, multiply, orderBy } from 'lodash';
 

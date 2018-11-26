@@ -1,4 +1,4 @@
-import React from 'react';
+import { h, render } from 'preact';
 import { sumBy, add } from 'lodash';
 
 import BarChart from '../BarChart';

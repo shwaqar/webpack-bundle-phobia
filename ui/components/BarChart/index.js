@@ -1,4 +1,4 @@
-import React from 'react';
+import { h, render } from 'preact';
 import { maxBy } from 'lodash';
 import filesize from 'filesize';
 

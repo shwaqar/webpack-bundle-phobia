@@ -25,7 +25,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-react']
+            plugins: [['@babel/plugin-transform-react-jsx', { pragma: 'h' }]]
           }
         },
         exclude: /node_modules/

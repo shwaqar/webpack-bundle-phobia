@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { h, render, Component } from 'preact';
 import 'normalize.css';
 import 'flexboxgrid';
 import { flow } from 'lodash';
