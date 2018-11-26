@@ -20,9 +20,12 @@
 
     &.active {
       cursor: auto;
+
+      &:hover .min,
       .min {
         background-color: $min-active-color;
       }
+      &:hover .gzip,
       .gzip {
         background-color: $gzip-active-color;
       }

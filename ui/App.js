@@ -6,7 +6,7 @@ import { flow } from 'lodash';
 import './App.scss';
 
 import AssetsChart from './components/AssetsChart';
-import releases from '../stats.json';
+import stats from '../stats.json';
 import AssetsTable from './components/AssetsTable';
 
 import { filterByFileType, filterLazyModules } from './utils';
@@ -17,7 +17,7 @@ class App extends Component {
     super(props);
     this.state = {
       currentReleaseIdx: 0,
-      releases: releases,
+      releases: stats,
       includeLazyModules: true,
       fileTypes: 'all'
     };
@@ -45,6 +45,11 @@ class App extends Component {
   }
 
   render() {
+    const releases = flow(
+      filterLazyModules(this.state.includeLazyModules),
+      filterByFileType(this.state.fileTypes)
+    )(this.state.releases);
+
     return (
       <div>
         <div className='row center-xs'>
@@ -61,19 +66,13 @@ class App extends Component {
         <div className='row around-xs top-xs'>
           <div className='col-md-6'>
             <AssetsTable
-              releases={flow(
-                filterLazyModules(this.state.includeLazyModules),
-                filterByFileType(this.state.fileTypes)
-              )(this.state.releases)}
+              releases={releases}
               currentReleaseIdx={this.state.currentReleaseIdx}
             />
           </div>
           <div className='col-md-4'>
             <AssetsChart
-              releases={flow(
-                filterLazyModules(this.state.includeLazyModules),
-                filterByFileType(this.state.fileTypes)
-              )(this.state.releases)}
+              releases={releases}
               currentReleaseIdx={this.state.currentReleaseIdx}
               handleReleaseChange={this.handleReleaseChange}
             />
