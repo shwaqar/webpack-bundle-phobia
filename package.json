@@ -4,7 +4,8 @@
   "description": "Find out the cost of webpack bundle over time",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./ui/index.html",
+    "start": "webpack-dev-server --config ./webpack.dev.conf.js",
+    "build:ui": "rm -rf ./dist && webpack --config ./webpack.prod.conf.js",
     "build": "rm -rf build && tsc",
     "lint:plugin": "eslint 'plugin/*.ts'",
     "lint:ui": "eslint 'ui/**/*.ts'",
@@ -21,17 +22,27 @@
   },
   "homepage": "https://github.com/shwaqar/webpack-bundle-phobia#readme",
   "dependencies": {
+    "@babel/core": "^7.1.6",
+    "babel-loader": "^8.0.4",
     "chalk": "^2.4.1",
+    "css-loader": "^1.0.1",
+    "filesize": "^3.6.1",
     "firebase": "^5.5.8",
     "flexboxgrid": "^6.3.1",
     "gzip-size": "^5.0.0",
+    "html-webpack-plugin": "^3.2.0",
     "lodash": "^4.17.11",
+    "node-sass": "^4.10.0",
     "normalize.css": "^8.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "typescript": "^3.1.6"
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "typescript": "^3.1.6",
+    "webpack-dev-server": "^3.1.10"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
     "@types/gzip-size": "^4.1.0",
     "@types/jest": "^23.3.9",
     "@types/lodash": "^4.14.118",
@@ -39,9 +50,9 @@
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-typescript": "^0.13.0",
     "jest": "^23.6.0",
-    "parcel-bundler": "^1.10.3",
-    "sass": "^1.15.1",
     "ts-jest": "^23.10.4",
-    "typescript-eslint-parser": "^21.0.1"
+    "typescript-eslint-parser": "^21.0.1",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2"
   }
 }

@@ -20,6 +20,10 @@ const BarStackGroup = ({ chunks, totalSize, tallestBar }) => {
 
   return (
     <div className='bar-chart__stack-group'>
+      <div className='bar-tooltip' style={{ bottom: `${barHeight}%` }}>
+        Minified: {filesize(chunks[1].size)} | Gzipped:{' '}
+        {filesize(chunks[0].size)}
+      </div>
       {chunks.map(chunk => (
         <BarStack
           key={chunk.name}
@@ -44,9 +48,6 @@ const Bar = ({
     className={`bar-chart__bar ${isActive ? 'active' : ''}`}
     onClick={() => handleReleaseChange(releasesIdx)}
   >
-    <div className='bar-tooltip'>
-      Minified: {filesize(data[1].size)} | Gzipped: {filesize(data[0].size)}
-    </div>
     <BarStackGroup
       chunks={data}
       totalSize={totalSize}
