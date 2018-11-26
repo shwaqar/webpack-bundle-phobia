@@ -3,6 +3,14 @@
 
 var api = require('../apijs');
 var fs = require('fs');
+var pkgDir = require('pkg-dir');
+var path = require('path');
+
+// Prevent caching of this module so module.parent is always accurate
+delete require.cache[__filename];
+var parentDir = path.dirname((module.parent && module.parent.filename) || '.');
+
+var dir = pkgDir.sync(parentDir);
 
 api
   .auth({
@@ -14,7 +22,7 @@ api
   .then(api.cleanUp);
 
 function writeToFile(data) {
-  fs.writeFile('firebase.json', JSON.stringify(data), err => {
+  fs.writeFile(path.join(dir, 'firebase.json'), JSON.stringify(data), err => {
     if (err) {
       return console.log(err);
     }

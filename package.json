@@ -29,6 +29,8 @@
     "gzip-size": "^5.0.0",
     "lodash": "^4.17.11",
     "normalize.css": "^8.0.1",
+    "pkg-dir": "^3.0.0",
+    "pkg-up": "^2.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "typescript": "^3.1.6"
