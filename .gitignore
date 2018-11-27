@@ -9,5 +9,6 @@
 .DS_Store
 .vscode
 .cache
+key.json
 
 npm-debug.log*

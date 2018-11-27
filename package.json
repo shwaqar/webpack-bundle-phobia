@@ -24,10 +24,12 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "firebase": "^5.5.8",
+    "firebase-admin": "^6.2.0",
     "flexboxgrid": "^6.3.1",
     "gzip-size": "^5.0.0",
     "lodash": "^4.17.11",
     "normalize.css": "^8.0.1",
+    "pkg-dir": "^3.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "typescript": "^3.1.6"
@@ -37,6 +39,7 @@
     "@types/gzip-size": "^4.1.0",
     "@types/jest": "^23.3.9",
     "@types/lodash": "^4.14.118",
+    "@types/pkg-dir": "^2.0.0",
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-typescript": "^0.13.0",

@@ -1,4 +1,4 @@
-import { auth, cleanUp, sendData } from '../api';
+import { cleanUp, sendData } from '../api';
 import parser from './parser';
 import chalk from 'chalk';
 
@@ -36,8 +36,7 @@ class BundlePhobiaWebpackPlugin {
           return;
         }
 
-        auth(this.credentials)
-          .then(() => sendData(this.name, parser(stats)))
+        sendData(this.name, parser(stats))
           .then(cleanUp)
           .then(() => {
             console.log(chalk.green(messageMap.storeSuccess));
