@@ -5,12 +5,15 @@ var api = require('../apijs');
 var fs = require('fs');
 var pkgDir = require('pkg-dir');
 var path = require('path');
+var pkgUp = require('pkg-up');
 
 // Prevent caching of this module so module.parent is always accurate
 delete require.cache[__filename];
 var parentDir = path.dirname((module.parent && module.parent.filename) || '.');
+var currentDir = pkgUp.sync('.');
 
 var dir = pkgDir.sync(parentDir);
+console.log(currentDir);
 
 api
   .auth({
