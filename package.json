@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Find out the cost of webpack bundle over time",
   "main": "build/plugin/index.js",
+  "bin": "build/cli/index.js",
   "scripts": {
     "start": "parcel ./ui/index.html",
     "build:ui": "parcel build ./ui/index.html",
@@ -31,7 +32,8 @@
     "normalize.css": "^8.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "typescript": "^3.1.6"
+    "typescript": "^3.1.6",
+    "write-json-file": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
