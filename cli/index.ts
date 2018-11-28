@@ -8,7 +8,7 @@ import path from 'path';
 const pkgDir = findUp.sync('package.json');
 const statsFilePath = path.join(path.dirname(pkgDir), 'stats.json');
 
-const _writeToFile = (path: string) => (data: object) => {
+const _writeToFile = (path: string) => (data: string) => {
   return new Promise((resolve, reject) => {
     fs.writeFile(path, data, err => {
       if (err) {
@@ -20,6 +20,7 @@ const _writeToFile = (path: string) => (data: object) => {
 };
 
 fetchData()
+  .then((data: object) => JSON.stringify(data))
   .then(_writeToFile(statsFilePath))
   .then(cleanUp)
   .then(() => {
