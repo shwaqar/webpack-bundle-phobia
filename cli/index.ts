@@ -1,22 +1,26 @@
 #! /usr/bin/env node
 
-import { auth, cleanUp, fetchData } from '../api';
-import pkgDir from 'pkg-dir';
+import { cleanUp, fetchData } from '../api';
+import findUp from 'find-up';
+import fs from 'fs';
 import path from 'path';
-import writeJsonFile from 'write-json-file';
 
-// Prevent caching of this module so module.parent is always accurate
-delete require.cache[__filename];
-const currentDir = pkgDir.sync(module.filename) || '.';
+const pkgDir = findUp.sync('package.json');
+const statsFilePath = path.join(path.dirname(pkgDir), 'stats.json');
 
-auth({
-  email: 'steve@xyz.com',
-  password: 'abc123'
-})
-  .then(() => fetchData())
-  .then((data: object) => {
-    return writeJsonFile(path.join(currentDir, 'firebase.json'), data);
-  })
+const _writeToFile = (path: string) => (data: object) => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(path, data, err => {
+      if (err) {
+        return reject(err);
+      }
+      resolve();
+    });
+  });
+};
+
+fetchData()
+  .then(_writeToFile(statsFilePath))
   .then(cleanUp)
   .then(() => {
     console.log('The file was saved!');
