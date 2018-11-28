@@ -1,17 +1,13 @@
 import * as admin from 'firebase-admin';
-import pkgDir from 'pkg-dir';
-import path from 'path';
+import findUp from 'find-up';
 import fs from 'fs';
 
-delete require.cache[__filename];
-const parentDir = path.dirname(
-  (module.parent && module.parent.filename) || '.'
-);
-const rootDir = pkgDir.sync(parentDir) || '.';
-const keyFilePath = path.resolve(rootDir, 'key.json');
+const KEYFILE_NAME = 'key.json';
 
-if (!fs.existsSync(keyFilePath)) {
-  throw new Error('Key file with name "key.json" is required!');
+const keyFilePath = findUp.sync(KEYFILE_NAME);
+
+if (!keyFilePath) {
+  throw new Error(`Key file with name "${KEYFILE_NAME}" is required!`);
 }
 
 const key = fs.readFileSync(keyFilePath, 'utf8');
