@@ -1,12 +1,11 @@
 #! /usr/bin/env node
 
 import { cleanUp, fetchData } from '../api';
-import findUp from 'find-up';
 import fs from 'fs';
 import path from 'path';
+import chalk from 'chalk';
 
-const pkgDir = findUp.sync('package.json');
-const statsFilePath = path.join(path.dirname(pkgDir), 'stats.json');
+const statsFilePath = path.resolve(__dirname, '../stats.json');
 
 const _writeToFile = (path: string) => (data: string) => {
   return new Promise((resolve, reject) => {
@@ -24,5 +23,9 @@ fetchData()
   .then(_writeToFile(statsFilePath))
   .then(cleanUp)
   .then(() => {
-    console.log('The file was saved!');
+    console.log(
+      chalk.green(
+        'bundle-phobia-webpack-plugin: Stats file was downloaded and saved to local directory'
+      )
+    );
   });
