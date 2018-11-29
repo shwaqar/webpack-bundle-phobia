@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Find out the cost of webpack bundle over time",
   "main": "build/plugin/index.js",
+  "bin": "build/cli/index.js",
   "scripts": {
     "start": "parcel ./ui/index.html",
     "build:ui": "parcel build ./ui/index.html",

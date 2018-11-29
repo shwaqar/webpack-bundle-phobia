@@ -3,30 +3,17 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "es2017",
-    "strict": true,
+    "strict": false,
     "moduleResolution": "node",
     "sourceMap": false,
     "outDir": "build",
     "resolveJsonModule": true,
     "baseUrl": ".",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "paths": {
-      "*": [
-        "node_modules/*",
-        "src/types/*"
-      ]
+      "*": ["node_modules/*", "src/types/*"]
     }
   },
-  "include": [
-    "ui/**/*.ts",
-    "plugin/**/*.ts",
-    "api/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "./**/*.spec.ts"
-  ]
+  "include": ["ui/**/*.ts", "cli/**/*.ts", "plugin/**/*.ts", "api/**/*.ts"],
+  "exclude": ["node_modules", "./**/*.spec.ts"]
 }

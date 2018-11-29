@@ -10,5 +10,6 @@
 .vscode
 .cache
 key.json
+stats.json
 
 npm-debug.log*
