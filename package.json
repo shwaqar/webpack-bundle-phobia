@@ -32,8 +32,7 @@
     "normalize.css": "^8.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "typescript": "^3.1.6",
-    "write-json-file": "^3.0.2"
+    "typescript": "^3.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
