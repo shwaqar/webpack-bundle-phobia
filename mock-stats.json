@@ -1,5 +1,5 @@
-[
-  {
+{
+  "Release A": {
     "assets": [
       {
         "gzipSize": 101,
@@ -48,7 +48,7 @@
     "time": 2526,
     "timestamp": 1542494156559
   },
-  {
+  "Release B": {
     "assets": [
       {
         "gzipSize": 105,
@@ -89,5 +89,425 @@
     "name": "Release B",
     "time": 2526,
     "timestamp": 1542494156559
+  },
+  "Release C": {
+    "assets": [
+      {
+        "gzipSize": 105,
+        "isInitial": true,
+        "minSize": 90,
+        "name": "app.dada2321.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1278,
+        "isInitial": true,
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11371,
+        "isInitial": true,
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 78186,
+        "isInitial": true,
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2993,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release C",
+    "time": 2526,
+    "timestamp": 1542494156559
+  },
+  "Release D": {
+    "assets": [
+      {
+        "gzipSize": 105,
+        "isInitial": true,
+        "minSize": 90,
+        "name": "app.dada2321.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1278,
+        "isInitial": true,
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11371,
+        "isInitial": true,
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 78186,
+        "isInitial": true,
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2993,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release D",
+    "time": 2526,
+    "timestamp": 1542494156559
+  },
+  "Release E": {
+    "assets": [
+      {
+        "gzipSize": 105,
+        "isInitial": true,
+        "minSize": 90,
+        "name": "app.dada2321.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1278,
+        "isInitial": true,
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11371,
+        "isInitial": true,
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 78186,
+        "isInitial": true,
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2993,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release E",
+    "time": 2526,
+    "timestamp": 1542494156559
+  },
+  "Release F": {
+    "assets": [
+      {
+        "gzipSize": 105,
+        "isInitial": true,
+        "minSize": 90,
+        "name": "app.dada2321.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1278,
+        "isInitial": true,
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11371,
+        "isInitial": true,
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 78186,
+        "isInitial": true,
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2993,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release F",
+    "time": 2526,
+    "timestamp": 1542494156559
+  },
+  "Release G": {
+    "assets": [
+      {
+        "gzipSize": 105,
+        "isInitial": true,
+        "minSize": 90,
+        "name": "app.dada2321.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1278,
+        "isInitial": true,
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11371,
+        "isInitial": true,
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 78186,
+        "isInitial": true,
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2993,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release G",
+    "time": 2526,
+    "timestamp": 1542494156559
+  },
+  "Release H": {
+    "assets": [
+      {
+        "gzipSize": 105,
+        "isInitial": true,
+        "minSize": 90,
+        "name": "app.dada2321.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1278,
+        "isInitial": true,
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11371,
+        "isInitial": true,
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 78186,
+        "isInitial": true,
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2993,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release H",
+    "time": 2526,
+    "timestamp": 1542494156559
+  },
+  "Release I": {
+    "assets": [
+      {
+        "gzipSize": 105,
+        "isInitial": true,
+        "minSize": 90,
+        "name": "app.dada2321.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1278,
+        "isInitial": true,
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11371,
+        "isInitial": true,
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 78186,
+        "isInitial": true,
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2993,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release I",
+    "time": 2526,
+    "timestamp": 1542494156559
+  },
+  "Release J": {
+    "assets": [
+      {
+        "gzipSize": 105,
+        "isInitial": true,
+        "minSize": 90,
+        "name": "app.dada2321.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1278,
+        "isInitial": true,
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11371,
+        "isInitial": true,
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 78186,
+        "isInitial": true,
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2993,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release J",
+    "time": 2526,
+    "timestamp": 1542494156559
+  },
+  "Release K": {
+    "assets": [
+      {
+        "gzipSize": 105,
+        "isInitial": true,
+        "minSize": 90,
+        "name": "app.dada2321.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1278,
+        "isInitial": true,
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11371,
+        "isInitial": true,
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 78186,
+        "isInitial": true,
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2993,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release K",
+    "time": 2526,
+    "timestamp": 1542494156559
+  },
+  "Release L": {
+    "assets": [
+      {
+        "gzipSize": 105,
+        "isInitial": true,
+        "minSize": 90,
+        "name": "app.dada2321.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 1278,
+        "isInitial": true,
+        "minSize": 7109,
+        "name": "app.dsaxcz.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 11371,
+        "isInitial": true,
+        "minSize": 59989,
+        "name": "vendor.aaxc123.css",
+        "type": "css"
+      },
+      {
+        "gzipSize": 78186,
+        "isInitial": true,
+        "minSize": 244831,
+        "name": "vendor.dsadvvx.js",
+        "type": "script"
+      },
+      {
+        "gzipSize": 1168,
+        "isInitial": true,
+        "minSize": 2993,
+        "name": "runtime.f1b40dab.js",
+        "type": "script"
+      }
+    ],
+    "name": "Release L",
+    "time": 2526,
+    "timestamp": 1542494156559
   }
-]
+}

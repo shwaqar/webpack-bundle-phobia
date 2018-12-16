@@ -1,41 +1,50 @@
-import React from 'react';
-import { sumBy, add } from 'lodash';
+import React, { Component } from 'react';
+import { slice } from 'lodash';
 
 import BarChart from '../BarChart';
+import { convertData, paginate } from './assetsChart.util';
 
-const convertData = releases =>
-  releases.map(release => {
-    const gzipSum = sumBy(release.assets, 'gzipSize');
-    const minSum = sumBy(release.assets, 'minSize');
+const PAGE_SIZE = 5;
 
-    return {
-      name: release.name,
-      data: [
-        {
-          name: 'gzip',
-          size: gzipSum
-        },
-        {
-          name: 'min',
-          size: minSum
-        }
-      ],
-      totalSize: add(gzipSum, minSum)
+class AssetsChart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      releases: convertData(this.props.releases),
+      handleReleaseChange: props.handleReleaseChange,
+      currentReleaseIdx: props.currentReleaseIdx,
+      currentPage: 0,
+      totalPages: Math.ceil(this.props.releases.length / PAGE_SIZE) - 1
     };
-  });
 
-function AssetsChart({ releases, handleReleaseChange, currentReleaseIdx }) {
-  const data = convertData(releases);
+    this.handlePageChange = this.handlePageChange.bind(this);
+  }
 
-  return (
-    <div>
-      <BarChart
-        data={data}
-        handleReleaseChange={handleReleaseChange}
-        currentReleaseIdx={currentReleaseIdx}
-      />
-    </div>
-  );
+  handlePageChange(type) {
+    this.setState(() => ({
+      currentPage: paginate(type, this.state)
+    }));
+  }
+
+  render() {
+    const data = slice(
+      this.state.releases,
+      this.state.currentPage * PAGE_SIZE,
+      (this.state.currentPage + 1) * PAGE_SIZE
+    );
+
+    return (
+      <div>
+        <button onClick={() => this.handlePageChange('next')}>next</button>
+        <button onClick={() => this.handlePageChange('prev')}>prev</button>
+        <BarChart
+          data={data}
+          handleReleaseChange={this.state.handleReleaseChange}
+          currentReleaseIdx={this.state.currentReleaseIdx}
+        />
+      </div>
+    );
+  }
 }
 
 export default AssetsChart;

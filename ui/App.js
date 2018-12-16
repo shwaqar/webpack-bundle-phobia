@@ -1,29 +1,47 @@
 import React, { Component } from 'react';
 import 'normalize.css';
 import 'flexboxgrid';
-import { flow } from 'lodash';
+import { flow, values } from 'lodash';
 
 import './App.scss';
 
 import AssetsChart from './components/AssetsChart';
-import stats from '../stats.json';
 import AssetsTable from './components/AssetsTable';
 
 import { filterByFileType, filterLazyModules } from './utils';
 import Filters from './components/Filters';
 
+const API_ENDPOINT = 'http://localhost:3333';
+
+const getMockStats = () => import('../mock-stats.json');
+
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       currentReleaseIdx: 0,
-      releases: stats,
+      releases: [],
       includeLazyModules: true,
       fileTypes: 'all'
     };
+
     this.handleReleaseChange = this.handleReleaseChange.bind(this);
     this.handleIncludeLazyModules = this.handleIncludeLazyModules.bind(this);
     this.handleFileTypeChange = this.handleFileTypeChange.bind(this);
+  }
+
+  componentDidMount() {
+    if (process.env.NODE_ENV === 'production') {
+      fetch(`${API_ENDPOINT}/mock_stats.json`)
+        .then(res => res.json())
+        .then(data => values(data))
+        .then(releases => this.setState(() => ({ releases })));
+    } else {
+      getMockStats()
+        .then(data => values(data))
+        .then(releases => this.setState(() => ({ releases })));
+    }
   }
 
   handleReleaseChange(idx) {
@@ -49,6 +67,10 @@ class App extends Component {
       filterLazyModules(this.state.includeLazyModules),
       filterByFileType(this.state.fileTypes)
     )(this.state.releases);
+
+    if (this.state.releases.length === 0) {
+      return <div>No data available</div>;
+    }
 
     return (
       <div>
