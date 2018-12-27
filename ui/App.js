@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'normalize.css';
 import 'flexboxgrid';
-import { flow, values } from 'lodash';
+import { flow, values, findIndex } from 'lodash';
 
 import './App.scss';
 
@@ -44,7 +44,9 @@ class App extends Component {
     }
   }
 
-  handleReleaseChange(idx) {
+  handleReleaseChange(name) {
+    const idx = findIndex(this.state.releases, { name });
+
     this.setState(() => ({
       currentReleaseIdx: idx
     }));
@@ -69,7 +71,12 @@ class App extends Component {
     )(this.state.releases);
 
     if (this.state.releases.length === 0) {
-      return <div>No data available</div>;
+      return (
+        <div className='column middle-xs center-xs empty-state'>
+          <h1 className='app-title'>Webpack Bundle Phobia</h1>
+          <h3>No data available</h3>
+        </div>
+      );
     }
 
     return (
@@ -95,7 +102,9 @@ class App extends Component {
           <div className='col-md-4'>
             <AssetsChart
               releases={releases}
-              currentReleaseIdx={this.state.currentReleaseIdx}
+              currentActiveReleaseName={
+                this.state.releases[this.state.currentReleaseIdx].name
+              }
               handleReleaseChange={this.handleReleaseChange}
             />
           </div>

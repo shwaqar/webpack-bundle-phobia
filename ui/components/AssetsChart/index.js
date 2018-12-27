@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { slice } from 'lodash';
+import { flow, findIndex } from 'lodash';
+
+import './AssetsChart.scss';
 
 import BarChart from '../BarChart';
-import { convertData, paginate } from './assetsChart.util';
+import { convertData, paginate, sliceData } from './assetsChart.util';
 
 const PAGE_SIZE = 5;
 
@@ -10,9 +12,7 @@ class AssetsChart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      releases: convertData(this.props.releases),
-      handleReleaseChange: props.handleReleaseChange,
-      currentReleaseIdx: props.currentReleaseIdx,
+      activeIdx: 0,
       currentPage: 0,
       totalPages: Math.ceil(this.props.releases.length / PAGE_SIZE) - 1
     };
@@ -26,22 +26,46 @@ class AssetsChart extends Component {
     }));
   }
 
-  render() {
-    const data = slice(
-      this.state.releases,
-      this.state.currentPage * PAGE_SIZE,
-      (this.state.currentPage + 1) * PAGE_SIZE
-    );
+  static getDerivedStateFromProps(props, state) {
+    const data = flow(
+      convertData,
+      sliceData(state.currentPage, PAGE_SIZE)
+    )(props.releases);
 
+    const activeIdx = findIndex(data, { name: props.currentActiveReleaseName });
+
+    return {
+      data,
+      activeIdx
+    };
+  }
+
+  render() {
     return (
-      <div>
-        <button onClick={() => this.handlePageChange('next')}>next</button>
-        <button onClick={() => this.handlePageChange('prev')}>prev</button>
+      <div className='row between-xs center-xs middle-xs'>
+        <button
+          type='button'
+          className='paginate-btn'
+          disabled={this.state.currentPage === this.state.totalPages}
+          onClick={() => this.handlePageChange('next')}
+        >
+          <i className='arrow left' />
+        </button>
+
         <BarChart
-          data={data}
-          handleReleaseChange={this.state.handleReleaseChange}
-          currentReleaseIdx={this.state.currentReleaseIdx}
+          data={this.state.data}
+          handleReleaseChange={this.props.handleReleaseChange}
+          activeIdx={this.state.activeIdx}
         />
+
+        <button
+          type='button'
+          className='paginate-btn'
+          disabled={this.state.currentPage === 0}
+          onClick={() => this.handlePageChange('prev')}
+        >
+          <i className='arrow right' />
+        </button>
       </div>
     );
   }

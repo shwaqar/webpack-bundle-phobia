@@ -1,4 +1,4 @@
-import { sumBy, add } from 'lodash';
+import { sumBy, add, slice } from 'lodash';
 
 export const convertData = releases =>
   releases.map(release => {
@@ -36,3 +36,6 @@ export const paginate = (action, payload) => {
       return payload;
   }
 };
+
+export const sliceData = (currentPage, pageSize) => data =>
+  slice(data, currentPage * pageSize, (currentPage + 1) * pageSize);
