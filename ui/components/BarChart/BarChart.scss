@@ -8,7 +8,7 @@
 
   &__bar {
     position: relative;
-    width: 35px;
+    width: 30px;
     padding: 0 8px;
     cursor: pointer;
 
@@ -84,10 +84,10 @@
     margin-right: 6px;
 
     &.gzip {
-      background-color: $gzip-color;
+      background-color: $gzip-active-color;
     }
     &.min {
-      background-color: $min-color;
+      background-color: $min-active-color;
     }
   }
 }
@@ -101,7 +101,7 @@
   background-color: $bar-tooltip-bg;
   border-radius: 4px;
   padding: 6px;
-  color: #fff;
+  color: $font-color-secondary;
   font-size: 0.8em;
   transform: translateX(-50%);
   z-index: 1000;

@@ -6,7 +6,7 @@ import './AssetsChart.scss';
 import BarChart from '../BarChart';
 import { convertData, paginate, sliceData } from './assetsChart.util';
 
-const PAGE_SIZE = 5;
+const PAGE_SIZE = 6;
 
 class AssetsChart extends Component {
   constructor(props) {
