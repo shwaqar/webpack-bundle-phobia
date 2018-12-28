@@ -1,6 +1,7 @@
 import React from 'react';
 import filesize from 'filesize';
 import { sumBy, floor, divide, multiply, orderBy } from 'lodash';
+import dayjs from 'dayjs';
 
 import './AssetsTable.scss';
 
@@ -57,14 +58,28 @@ const AssetsTableItem = ({ name, percent, gzipSize, minSize }) => {
 };
 
 function AssetsTable({ releases, currentReleaseIdx }) {
-  const data = processData(releases[currentReleaseIdx].assets);
+  const currentRelease = releases[currentReleaseIdx];
+  const data = processData(currentRelease.assets);
 
   return (
-    <ul className='assets-table'>
-      {data.map((asset, idx) => (
-        <AssetsTableItem key={idx} {...asset} />
-      ))}
-    </ul>
+    <div>
+      <div className='release-summary row middle-xs between-xs'>
+        <div className='release-summary__name'>{currentRelease.name}</div>
+        <div className='end-xs'>
+          <div className='release-summary__timestamp'>
+            {dayjs(currentRelease.timestamp).format('DD-MM-YYYY hh:mm A')}
+          </div>
+          <div className='release-summary__time'>
+            Compile Time: {currentRelease.time} ms
+          </div>
+        </div>
+      </div>
+      <ul className='assets-table'>
+        {data.map((asset, idx) => (
+          <AssetsTableItem key={idx} {...asset} />
+        ))}
+      </ul>
+    </div>
   );
 }
 

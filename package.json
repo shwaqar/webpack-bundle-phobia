@@ -24,6 +24,7 @@
   "homepage": "https://github.com/shwaqar/webpack-bundle-phobia#readme",
   "dependencies": {
     "chalk": "^2.4.1",
+    "dayjs": "^1.7.8",
     "express": "^4.16.4",
     "find-up": "^3.0.0",
     "firebase-admin": "^6.2.0",
