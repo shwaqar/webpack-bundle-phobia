@@ -33,7 +33,7 @@ class App extends Component {
 
   componentDidMount() {
     if (process.env.NODE_ENV === 'production') {
-      fetch(`${API_ENDPOINT}/mock_stats.json`)
+      fetch(`${API_ENDPOINT}/stats`)
         .then(res => res.json())
         .then(data => values(data))
         .then(releases => this.setState(() => ({ releases })));
