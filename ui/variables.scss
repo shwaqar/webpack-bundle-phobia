@@ -1,21 +1,28 @@
-// Body
-$font-color: #000;
-$bg-color: #fff;
+// Base
+$font-color-primary: #fff;
+$font-color-secondary: #a9abb1;
+$bg-color: #0a0b0e;
+
+$base-color-primary: #171920;
+$base-color-secondary: #1e212a;
+
+$accent-color-primary: #1976d2;
+$accent-color-secondary: #03a9f4;
 
 // Bar Chart
-$gzip-color: #65a1f8;
-$gzip-active-color: darken($gzip-color, 10);
-$gzip-hover-color: darken($gzip-color, 5);
+$gzip-color: $base-color-secondary;
+$gzip-active-color: $accent-color-primary;
+$gzip-hover-color: lighten($base-color-secondary, 5);
 
-$min-color: #65c3f8;
-$min-active-color: darken($min-color, 10);
-$min-hover-color: darken($min-color, 5);
+$min-color: $base-color-primary;
+$min-active-color: $accent-color-secondary;
+$min-hover-color: lighten($base-color-primary, 5);
 
-$bar-tooltip-bg: #423d3d;
-
-// Table
-$table-border: #edeef0;
+$bar-tooltip-bg: $base-color-primary;
 
 // Filter
-$filter-active: #0652dd;
+$filter-active: $accent-color-primary;
 $filter-font-color: #fff;
+
+// Pagination
+$arrow-color: #6a7070;

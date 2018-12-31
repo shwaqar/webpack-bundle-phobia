@@ -11,7 +11,7 @@ function Filters({
   return (
     <div className='filters row around-xs'>
       <div className='col-xs-11'>
-        <div className='filters__header'>Filter</div>
+        <div className='filters__header'>Filter by</div>
 
         <div className='row'>
           <div className='filter filter-checkbox'>

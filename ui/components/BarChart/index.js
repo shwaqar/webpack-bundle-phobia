@@ -33,16 +33,16 @@ const BarStackGroup = ({ chunks, totalSize, tallestBar }) => {
 };
 
 const Bar = ({
+  name,
   data,
   totalSize,
   tallestBar,
-  releasesIdx,
   isActive,
   handleReleaseChange
 }) => (
   <div
     className={`bar-chart__bar ${isActive ? 'active' : ''}`}
-    onClick={() => handleReleaseChange(releasesIdx)}
+    onClick={() => handleReleaseChange(name)}
   >
     <div className='bar-tooltip'>
       Minified: {filesize(data[1].size)} | Gzipped: {filesize(data[0].size)}
@@ -55,7 +55,7 @@ const Bar = ({
   </div>
 );
 
-const BarChart = ({ data, handleReleaseChange, currentReleaseIdx }) => {
+const BarChart = ({ data, handleReleaseChange, activeIdx }) => {
   const tallestBar = maxBy(data, 'totalSize').totalSize;
 
   return (
@@ -65,9 +65,8 @@ const BarChart = ({ data, handleReleaseChange, currentReleaseIdx }) => {
           <Bar
             key={release.name}
             tallestBar={tallestBar}
-            releasesIdx={idx}
             handleReleaseChange={handleReleaseChange}
-            isActive={currentReleaseIdx === idx}
+            isActive={activeIdx === idx}
             {...release}
           />
         ))}
