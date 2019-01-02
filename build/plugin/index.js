@@ -20,7 +20,7 @@ class BundlePhobiaWebpackPlugin {
                 cb();
                 return;
             }
-            api_1.sendData(this.name, parser_1.default(stats))
+            api_1.sendData(this.name, parser_1.default(stats, this.name))
                 .then(api_1.cleanUp)
                 .then(() => {
                 console.log(chalk_1.default.green(messageMap.storeSuccess));

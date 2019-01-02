@@ -26,7 +26,7 @@ class BundlePhobiaWebpackPlugin {
           return;
         }
 
-        sendData(this.name, parser(stats))
+        sendData(this.name, parser(stats, this.name))
           .then(cleanUp)
           .then(() => {
             console.log(chalk.green(messageMap.storeSuccess));

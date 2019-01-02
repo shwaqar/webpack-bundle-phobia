@@ -8,7 +8,7 @@ const path_1 = __importDefault(require("path"));
 const lodash_1 = __importDefault(require("lodash"));
 const findChunk = (chunks) => (file) => lodash_1.default.find(chunks, chunk => lodash_1.default.includes(chunk.files, file));
 const assetType = (fileName) => lodash_1.default.endsWith(fileName, '.js') ? 'script' : 'css';
-function parser(stats) {
+function parser(stats, name) {
     const findByChunk = findChunk(stats.compilation.chunks);
     const rawFiles = lodash_1.default.pickBy(stats.compilation.assets, (v, name) => lodash_1.default.endsWith(name, '.js') || lodash_1.default.endsWith(name, '.css'));
     const assets = lodash_1.default.map(rawFiles, (asset, name) => ({
@@ -26,6 +26,7 @@ function parser(stats) {
         totalMinSize,
         totalGzipSize,
         time,
+        name,
         timestamp: Date.now()
     };
 }

@@ -8,7 +8,7 @@ const findChunk = (chunks: any) => (file: any) =>
 const assetType = (fileName: string) =>
   _.endsWith(fileName, '.js') ? 'script' : 'css';
 
-function parser(stats: any) {
+function parser(stats: any, name: string) {
   const findByChunk = findChunk(stats.compilation.chunks);
 
   const rawFiles = _.pickBy(
@@ -34,6 +34,7 @@ function parser(stats: any) {
     totalMinSize,
     totalGzipSize,
     time,
+    name,
     timestamp: Date.now()
   };
 }
