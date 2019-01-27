@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'normalize.css';
 import 'flexboxgrid';
-import { flow, values, findIndex } from 'lodash';
+import { flow, values, findIndex, reverse } from 'lodash';
 
 import './App.scss';
 
@@ -35,11 +35,11 @@ class App extends Component {
     if (process.env.NODE_ENV === 'production') {
       fetch(`${API_ENDPOINT}/stats`)
         .then(res => res.json())
-        .then(data => values(data))
+        .then(data => reverse(values(data)))
         .then(releases => this.setState(() => ({ releases })));
     } else {
       getMockStats()
-        .then(data => values(data))
+        .then(data => reverse(values(data)))
         .then(releases => this.setState(() => ({ releases })));
     }
   }

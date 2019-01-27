@@ -1,10 +1,10 @@
 // Base
-$font-color-primary: #fff;
-$font-color-secondary: #a9abb1;
-$bg-color: #0a0b0e;
+$font-color-primary: #000;
+$font-color-secondary: #000;
+$bg-color: #fff;
 
-$base-color-primary: #171920;
-$base-color-secondary: #1e212a;
+$base-color-primary: #ecf0f1;
+$base-color-secondary: #777c8b;
 
 $accent-color-primary: #1976d2;
 $accent-color-secondary: #03a9f4;
@@ -12,11 +12,11 @@ $accent-color-secondary: #03a9f4;
 // Bar Chart
 $gzip-color: $base-color-secondary;
 $gzip-active-color: $accent-color-primary;
-$gzip-hover-color: lighten($base-color-secondary, 5);
+$gzip-hover-color: darken($base-color-secondary, 5);
 
 $min-color: $base-color-primary;
 $min-active-color: $accent-color-secondary;
-$min-hover-color: lighten($base-color-primary, 5);
+$min-hover-color: darken($base-color-primary, 5);
 
 $bar-tooltip-bg: $base-color-primary;
 

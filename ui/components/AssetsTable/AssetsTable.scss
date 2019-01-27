@@ -2,12 +2,11 @@
 
 .assets-table {
   margin: 0;
-  padding: 0;
   list-style: none;
   overflow: hidden;
 
   &__item {
-    padding: 14px 20px;
+    padding: 14px 10px;
     background-color: $base-color-primary;
     border-radius: 4px;
     margin-bottom: 6px;
@@ -15,6 +14,10 @@
     &:last-of-type {
       border-bottom: 0;
       background-color: transparent;
+
+      .assets-table__size--percent {
+        visibility: hidden;
+      }
     }
   }
 
@@ -22,6 +25,10 @@
     display: flex;
     align-items: center;
     color: $font-color-secondary;
+
+    &--hash-change {
+      color: #e74c3c;
+    }
   }
 
   &__size {
@@ -49,6 +56,39 @@
   &__size-type {
     font-size: 0.7em;
     color: $font-color-secondary;
+  }
+
+  &__diff {
+    font-size: 0.7em;
+    font-weight: 500;
+
+    &:empty::before {
+      border: 0;
+    }
+
+    &:before {
+      content: '';
+      display: inline-block;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      margin: 0 4px;
+    }
+
+    &--pos {
+      position: relative;
+      color: #2ecc71;
+      &:before {
+        border-top: 6px solid #2ecc71;
+      }
+    }
+
+    &--neg {
+      position: relative;
+      color: #e74c3c;
+      &:before {
+        border-bottom: 6px solid #e74c3c;
+      }
+    }
   }
 }
 
