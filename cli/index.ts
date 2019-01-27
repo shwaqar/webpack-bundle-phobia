@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 
-import { fetchData } from '../api';
+import Api from '../api';
 import startServer from './server';
 
-fetchData().then(startServer);
+const api = new Api();
+
+api.fetchData().then(startServer);
