@@ -8,8 +8,10 @@ const findChunk = (chunks: any) => (file: any) =>
 const assetType = (fileName: string) =>
   _.endsWith(fileName, '.js') ? 'script' : 'css';
 
+const isInitial = chunkInfo => (chunkInfo ? chunkInfo.canBeInitial() : true);
+
 function parser(stats: any, name: string) {
-  const findByChunk = findChunk(stats.compilation.chunks);
+  const findChunkByName = findChunk(stats.compilation.chunks);
 
   const rawFiles = _.pickBy(
     stats.compilation.assets,
@@ -19,7 +21,7 @@ function parser(stats: any, name: string) {
   const assets = _.map(rawFiles, (asset, name) => ({
     name: path.basename(name),
     type: assetType(name),
-    isInitial: findByChunk(name).canBeInitial(),
+    isInitial: isInitial(findChunkByName(name)),
     minSize: asset.size(),
     gzipSize: gzipSize.sync(asset.source())
   }));
