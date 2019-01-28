@@ -25,10 +25,10 @@
   &__name {
     display: flex;
     align-items: center;
-    color: $font-color-secondary;
+    color: #7f8c8d;
 
     &--hash-change {
-      color: #e74c3c;
+      color: $font-color-secondary;
     }
   }
 
